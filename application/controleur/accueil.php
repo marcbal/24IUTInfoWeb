@@ -8,6 +8,12 @@
 
 class Accueil extends Controleur
 {
+    public function __construct(){
+        parent::__construct();
+        if(!Session::isLogin())
+            Redirect::login ();
+    }
+    
     public function index()
     {
         require 'application/vue/_template/header.php';
