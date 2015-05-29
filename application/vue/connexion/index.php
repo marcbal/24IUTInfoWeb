@@ -1,15 +1,29 @@
 <section class="loginform">
-    <form name="login" action="index_submit" method="get" accept-charset="utf-8">
-            <ul>
-                    <li><label for="usermail">Email</label>
-                        <input type="email" name="usermail" placeholder="exemple@email.com" required></li>
-                    <li><label for="password">Mot de passe</label>
-                        <input type="password" name="password" placeholder="mot de passe" required></li>
-                    <li>
-                      
 
+    <form class="form-horizontal" role="form" action="<?php echo URL; ?>login/login" method="post">
 
-                  <input type="submit" value="Se Connecter"></li>
-                </ul>
+        <div class="form-group">
+            <label for="usermail" class="col-sm-2 control-label">Nom login : </label>
+
+            <div class="col-sm-5">
+                <input type="email" class="form-control" id="usermail" name="usermail"
+                       placeholder="exemple@email.com" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">Mot de passe : </label>
+
+            <div class="col-sm-5">
+                <input type="password" class="form-control" id="password" name="password" placeholder="mot de passe" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" name="login">
+                    Se Connecter
+                </button>
+            </div>
+        </div>
     </form>
+
 </section>
