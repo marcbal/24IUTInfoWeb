@@ -6,7 +6,7 @@
  * Time: 00:41
  */
 
-class Client extends Table{
+class Clients extends Table{
 
     public $nom;
     public $rue;

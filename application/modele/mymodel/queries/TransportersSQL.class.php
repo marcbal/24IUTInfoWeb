@@ -6,6 +6,6 @@
  * Time: 23:15
  */
 
-class ConteneurSQL extends Query{
+class TransportersSQL extends Query{
 
 }

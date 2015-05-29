@@ -1,5 +1,5 @@
 <?php
-class User extends Query {
+class Users extends Query {
 
     public $user_password_hash;
     public $user_email;

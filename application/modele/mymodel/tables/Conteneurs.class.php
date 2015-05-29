@@ -6,7 +6,7 @@
  * Time: 23:25
  */
 
-class Conteneur extends Table{
+class Conteneurs extends Table{
 
     public $capacite;
 
