@@ -32,7 +32,14 @@
                         <a href="<?php echo URL; ?>index">Accueil</a>
                     </li>
                     <li>
-                        <a href="<?php echo URL; ?>index/sujet">Sujet</a>
+                        <?php
+                            if(Session::get('user_type') == USER_TYPE_COMPAGNIE){
+                                echo '<a href="'.URL.'>compagnie">Ma Compagnie</a>';
+                            }
+
+
+                        ?>
+
                     </li>
                     <li>
                         <a href="<?php echo URL; ?>index/about">About</a>
