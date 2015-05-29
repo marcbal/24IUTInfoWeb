@@ -181,3 +181,19 @@ if (document.getElementById('URLData')) {
 
 
 //document.write(Date());
+//type_selector
+$(function(){
+    var type = 0;
+    $( "#type_selector" ).change(function() {
+        if($( "#type_selector" ).val()==type)
+            return;
+        
+        
+        $("#type_"+type).hide(1000);
+        type=$( "#type_selector" ).val();
+        $("#type_"+type).show(1000);
+    });
+    
+    
+    
+});
