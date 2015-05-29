@@ -35,6 +35,7 @@ class Session
         $_SESSION[$key] = $value;
     }
 
+    
     /**
      * gets/returns the value of a specific key of the session
      * @param mixed $key Usually a string, right ?
@@ -56,7 +57,10 @@ class Session
         session_destroy();
     }
 
-
+    public static function add($key, $value)
+    {
+        $_SESSION[$key][] = $value;
+    }
 
 
 
@@ -73,20 +77,25 @@ class Session
 	public static function login($mail, $pass)
 	{
 		if (!NeverTrustUserInput::checkEmail($mail))
-			return 'invalid_email';	// email non valide
-
+		{
+                    Session::add("login_feedback_positive","Mauvais email ou mot de passe..");    
+                    return false;
+		}
 		$users = new UsersSQL();
 		$user = $users->findByUser_email($mail)->execute();
 
 		if (count($user) == 0)
-			return 'email_not_exist';	// l'e-mail n'existe pas dans la base
-
+		{
+                    Session::add("login_feedback_positive","Mauvais email ou mot de passe..");    
+                    return false;
+		}
 		$user = $user[0];
 
 
 		if (!password_verify($pass, $user->user_password_hash))
 		{
-			return 'wrong_password';
+                    Session::add("login_feedback_positive","Mauvais email ou mot de passe..");    
+                    return false;
 		}
 
 
@@ -96,6 +105,7 @@ class Session
 		Session::set('is_login', true);
 		Session::set('user_id', $user->getId());
 		Session::set('user_mail', $user->user_email);
+		Session::set('user_type', $user->user_type);
 		
 		
 		return true;
@@ -131,7 +141,9 @@ class Session
 		// on vérifie si le mail existe dans la base de donnée
 		$users = new UsersSQL();
 		$user = $users->findByUser_email($mail)->execute();
-		if (count($user) != 0) return 'email_exist';
+		if (count($user) != 0) {
+                    return 'email_exist';
+                }
 		
 		
 		
@@ -145,4 +157,12 @@ class Session
 		
 		
 	}
+        
+        public function renderFeedback($name=''){
+            $positive = Session::get($name.'_feedback_positive');
+            $negative = Session::get($name.'_feedback_negative');
+             require APP . 'application/vue/_templates/feedback.php';
+            Session::set($name.'_feedback_positive', null);
+            Session::set($name.'_feedback_negative', null);
+        }
 }

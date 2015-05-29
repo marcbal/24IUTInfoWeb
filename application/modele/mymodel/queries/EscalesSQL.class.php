@@ -6,6 +6,6 @@
  * Time: 00:54
  */
 
-class EscaleSQL extends Query {
+class EscalesSQL extends Query {
 
 }

@@ -17,7 +17,7 @@ class Compagnie extends Controleur
 
     public function index()
     {
-        $query = new CompagnieSQL();
+        $query = new CompagniesSQL();
         $compagnie = $query->findById(Session::get('id'));
 
         require 'application/vue/_template/header.php';
@@ -26,10 +26,10 @@ class Compagnie extends Controleur
     }
 
     public function navires(){
-        $query = new CompagnieSQL();
+        $query = new CompagniesSQL();
         $compagnie = $query->findById(Session::get('id'));
 
-        $queryNavire = new NavireSQL();
+        $queryNavire = new NaviresSQL();
         $queryNavire->findWithCondition('id_compagnie = ?',array($compagnie->getId()));
 
 

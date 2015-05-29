@@ -6,7 +6,7 @@
  * Time: 00:21
  */
 
-class Mouvement extends Table {
+class Mouvements extends Table {
 
     public $type; // ENUM D, C
     public $id_conteneur;
