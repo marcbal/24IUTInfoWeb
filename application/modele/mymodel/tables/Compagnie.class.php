@@ -16,6 +16,7 @@ class Compagnie extends Table{
 
     public function __construct($nom = "", $pays = ""){
         parent::__construct();
+
         $this->nom = $nom;
         $this->pays = $pays;
 
