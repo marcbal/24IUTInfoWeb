@@ -6,6 +6,6 @@
  * Time: 23:17
  */
 
-class CompagnieSQL extends Query {
+class CompagnieSQL extends Query{
 
 }
