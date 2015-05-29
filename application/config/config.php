@@ -6,8 +6,8 @@ define('URL', dirname($_SERVER['PHP_SELF']).'/');
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
 define('DB_NAME', '24iutinfo');
-define('DB_USER', '');
-define('DB_PASS', '');
+define('DB_USER', '24iutinfo');
+define('DB_PASS', 'wh5m8ZpsEyvYrHF7');
 
 
 
