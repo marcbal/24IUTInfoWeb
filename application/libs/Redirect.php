@@ -7,12 +7,12 @@ class Redirect
 	 */
 	public static function home()
 	{
-		header("location: " . URL);
+		Redirect::to('');
 	}
         
-        public static function login()
+    public static function login()
 	{
-		header("location: " . URL . "connexion/");
+		Redirect::to('connexion/');
 	}
         
 	/**
@@ -23,6 +23,7 @@ class Redirect
 	public static function to($path)
 	{
 		header("location: " . URL . $path);
+		exit();
 	}
         
 
