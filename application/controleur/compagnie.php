@@ -17,8 +17,24 @@ class Compagnie extends Controleur
 
     public function index()
     {
+        $query = new CompagnieSQL();
+        $compagnie = $query->findById(Session::get('id'));
+
         require 'application/vue/_template/header.php';
         require 'application/vue/compagnie/index.php';
+        require 'application/vue/_template/footer.php';
+    }
+
+    public function navires(){
+        $query = new CompagnieSQL();
+        $compagnie = $query->findById(Session::get('id'));
+
+        $queryNavire = new NavireSQL();
+        $queryNavire->findWithCondition('id_compagnie = ?',array($compagnie->getId()));
+
+
+        require 'application/vue/_template/header.php';
+        require 'application/vue/compagnie/navires.php';
         require 'application/vue/_template/footer.php';
     }
 
