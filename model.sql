@@ -1,7 +1,7 @@
 -- Create schemas
 
 -- Create tables
-CREATE TABLE IF NOT EXISTS compagnie
+CREATE TABLE IF NOT EXISTS compagnies
 (
     id INTEGER NOT NULL,
     nom VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS compagnie
     PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS client
+CREATE TABLE IF NOT EXISTS clients
 (
     id INTEGER NOT NULL,
     nom VARCHAR(255),
@@ -34,13 +34,13 @@ CREATE TABLE IF NOT EXISTS compagnie_navire
     id_compagnie INTEGER    
 );
 
-CREATE TABLE IF NOT EXISTS transporter
+CREATE TABLE IF NOT EXISTS transporters
 (
     id_navire INTEGER,
     id_conteneur INTEGER    
 );
 
-CREATE TABLE IF NOT EXISTS conteneur
+CREATE TABLE IF NOT EXISTS conteneurs
 (
     id INTEGER NOT NULL,
     capacite INTEGER,
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS users
     PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS mouvement
+CREATE TABLE IF NOT EXISTS mouvements
 (
     id INTEGER NOT NULL,
     type VARCHAR(255),
@@ -69,11 +69,17 @@ CREATE TABLE IF NOT EXISTS mouvement
     PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS escale
+CREATE TABLE IF NOT EXISTS escales
 (
     id INTEGER NOT NULL,
     date_entree DATE,
     date_sortie DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS agents
+(
+    id INTEGER NOT NULL,
     PRIMARY KEY(id)
 );
 
@@ -89,29 +95,29 @@ ALTER TABLE compagnie_navire
     
 ALTER TABLE compagnie_navire
     ADD    FOREIGN KEY (id_compagnie)
-    REFERENCES compagnie(id)
+    REFERENCES compagnies(id)
     MATCH SIMPLE
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ;
     
-ALTER TABLE transporter
+ALTER TABLE transporters
     ADD    FOREIGN KEY (id_navire)
     REFERENCES navire(id)
     MATCH SIMPLE
 ;
     
-ALTER TABLE transporter
+ALTER TABLE transporters
     ADD    FOREIGN KEY (id_conteneur)
-    REFERENCES conteneur(id)
+    REFERENCES conteneurs(id)
     MATCH SIMPLE
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ;
     
-ALTER TABLE conteneur
+ALTER TABLE conteneurs
     ADD    FOREIGN KEY (id_client)
-    REFERENCES client(id)
+    REFERENCES clients(id)
     MATCH SIMPLE
     ON DELETE CASCADE
     ON UPDATE CASCADE
@@ -119,25 +125,31 @@ ALTER TABLE conteneur
     
 ALTER TABLE users
     ADD    FOREIGN KEY (id_client)
-    REFERENCES client(id)
+    REFERENCES clients(id)
     MATCH SIMPLE
 ;
     
 ALTER TABLE users
     ADD    FOREIGN KEY (id_compagnie)
-    REFERENCES compagnie(id)
+    REFERENCES compagnies(id)
     MATCH SIMPLE
 ;
     
-ALTER TABLE mouvement
+ALTER TABLE mouvements
     ADD    FOREIGN KEY (id_conteneur)
-    REFERENCES conteneur(id)
+    REFERENCES conteneurs(id)
     MATCH SIMPLE
 ;
     
-ALTER TABLE mouvement
+ALTER TABLE mouvements
     ADD    FOREIGN KEY (id_escale)
-    REFERENCES escale(id)
+    REFERENCES escales(id)
+    MATCH SIMPLE
+;
+    
+ALTER TABLE users
+    ADD    FOREIGN KEY (id_agent)
+    REFERENCES agents(id)
     MATCH SIMPLE
 ;
     
