@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Accueil extends Controller
+class Accueil extends Controleur
 {
     public function index()
     {
