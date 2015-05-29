@@ -95,11 +95,6 @@
     </div>
     <div class="container">
 
-        <!-- echo out the system feedback (error and success messages) -->
-        <?php $this->renderFeedbackMessages(); ?>
 
 
-        <div class="debug-helper-box">
-            DEBUG HELPER: you are in the view: <?php echo $filename; ?>
-        </div>
     </div>
