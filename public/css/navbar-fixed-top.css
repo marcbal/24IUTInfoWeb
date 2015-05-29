@@ -1,0 +1,30 @@
+body {
+    min-height: 2000px;
+    padding-top: 70px;
+}
+
+.debug-helper-box {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    padding: 20px;
+    color: #fff;
+    background-color: red;
+    font-weight: bold;
+}
+
+.feedback {
+    border: 1px solid black;
+    color: black;
+    padding: 20px;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.feedback.error {
+    border: 1px solid red;
+    color: red;
+}
+.feedback.success {
+    border: 1px solid green;
+    color: green;
+}
