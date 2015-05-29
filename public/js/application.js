@@ -193,7 +193,7 @@ $(function(){
         type=$( "#type_selector" ).val();
         $("#type_"+type).show(1000);
     });
-    
+    //42
     
     
 });
