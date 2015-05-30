@@ -1,3 +1,6 @@
+<!-- Bootstrap core CSS -->
+<link href="<?php echo URL; ?>public/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo URL; ?>public/css/navbar-fixed-top.css" rel="stylesheet">
 
 <div class="col_12">
 
