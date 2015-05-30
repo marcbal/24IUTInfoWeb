@@ -38,14 +38,10 @@
         </select>
     </div>
 </div>
-<div style="display: none">
-    <select name="escale">
-        <?php foreach($escales as $escale){
-            ?>
-            <option value="<?php echo $escale->getId();?>" ><?php  echo $escale->date_entree." ".$escale->date_sortie ?></option>
-        <?php } ?>
+
+    <select id="escale" style="display: none" name="escale">
+
     </select>
-</div>
 <script>
         $(document).on('click','#compagnie',function(){
             var compagnie=$("#compagnie").val();
@@ -58,6 +54,19 @@
                 var navire=$("#navire");
                 $("#suite").show();
                 navire.find("#selection-navire").html(data);
+            },function(error){
+                alert(error);
+            });
+        });
+
+        $(document).on('change','#navire',function(){
+            var navire=$("#selection-navire").val();
+            ajaxSendRequest("POST","statistique/getEscale","navire="+navire,function(data){
+                //méthod success
+                var escale=$("#escale");
+                escale.show();
+                escale.html(data);
+
             },function(error){
                 alert(error);
             });

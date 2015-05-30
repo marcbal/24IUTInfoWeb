@@ -48,4 +48,41 @@ class Statistique extends Controleur{
         }
         require 'application/vue/stat/getNavire.php';
     }
+    public function getEscale(){
+        if(!isset($_POST["navire"]) or empty($_POST["navire"])){
+            return false;
+        }
+        parent::loadModel('Navires');
+        parent::loadModel('Transporters');
+        parent::loadModel('Conteneurs');
+        parent::loadModel('Mouvements');
+        parent::loadModel('Escales');
+
+        $navireModele=new NaviresSQL();
+        $navire=$navireModele->findById($_POST["navire"]);
+
+        $transporterModele=new TransportersSQL();
+        $transporters=$transporterModele->findWithCondition("id_navire=:id",array("id"=>$_POST["navire"]));
+
+        $conteneurs=array();
+        foreach($transporters as $t){
+            $conteneurMoodele=new ConteneursSQL();
+            $conteneurs[]=$conteneurMoodele->findById($t->id_conteneur);
+        }
+
+
+        $mouvements=array();
+        foreach($conteneurs as $c){
+            $mouvementModele=new MouvementsSQL();
+            $mouvements[]=$mouvementModele->findWithCondition("id_conteneur=:id",array("id"=>$c->getId()));
+        }
+        $escales=array();
+        foreach($mouvements as $m){
+            $escaleModele=new EscalesSQL();
+            $escales=$escaleModele->findWithCondition("id_escale=:id",array("id"=>$m->id_escale));
+        }
+
+        require 'application/vue/stat/getEscale.php';
+
+    }
 }
