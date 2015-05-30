@@ -21,4 +21,19 @@ class Inscription extends Controleur
         require 'application/vue/_template/footer.php';
     }
 
+    public function registerAgent($args)
+    {
+
+    }
+
+    public function registerCompagnie($args)
+    {
+
+    }
+
+    public function registerClient($args)
+    {
+        
+    }
+
 }

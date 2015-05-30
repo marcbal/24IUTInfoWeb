@@ -16,9 +16,6 @@ class Users extends Table {
         $this->id_compagnie = $id_compagnie;
         $this->id_agent = $id_agent;
     }
-    
-    
-
 
 }
 ?>
