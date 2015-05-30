@@ -17,6 +17,8 @@ class Compagnie extends Controleur
 
     public function index()
     {
+
+        parent::loadModel('Compagnies');
         $query = new CompagniesSQL();
         $compagnie = $query->findById(Session::get('id'));
 
@@ -27,6 +29,7 @@ class Compagnie extends Controleur
 
     public function navires(){
         parent::loadModel('Compagnies');
+        parent::loadModel('Navires');
 
         $query = new CompagniesSQL();
         $compagnie = $query->findById(Session::get('id'));
