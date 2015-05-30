@@ -27,21 +27,17 @@ class Client extends Controleur
         $query = new UsersSQL();
         $queryClient = new ClientsSQL();
 
-        if (Session::get('user_type') != USER_TYPE_CLIENT or $id == false) {
+        if ($id == false) {
             $client = $query->findById(Session::get('id'));
 
         }
-
-
-
-        if (!$id) {
-            $client = $query->findById(Session::get('id'));
-        } else {
+        else {
             //print_r($id);
             $client = $query->findById($id[0]);
             if ($client === null)
                 Redirect::to('');
         }
+        $client->loadClient($queryClient);
 
         require 'application/vue/_template/header.php';
         require 'application/vue/client/index.php';
