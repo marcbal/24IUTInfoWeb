@@ -7,7 +7,8 @@
  */
 ?>
 
-<select name="compagnie">
+<select id="compagnie" name="compagnie">
+    <option value=""></option>
     <?php foreach($compagnies as $compagnie){
      ?>
         <option value="<?php echo $compagnie->getId();?>" ><?php  echo $compagnie->nom ?></option>
@@ -29,14 +30,12 @@
     <option value="11">Novembre</option>
     <option value="12">Décembre</option>
 </select>
-<label for="navire">Navire:</label>
-<select name="navire">
-    <option value="tous">Tous les navires</option>
-    <?php foreach($navires as $navire){
-        ?>
-        <option value="<?php echo $navire->getId();?>" ><?php  echo $navire->nom ?></option>
-    <?php } ?>
-</select>
+<div id="navire" style="display: none">
+    <label for="navire">Navire:</label>
+    <select id="selection-navire" name="navire">
+
+    </select>
+</div>
 <div style="display: none">
     <select name="escale">
         <?php foreach($escales as $escale){
@@ -45,3 +44,16 @@
         <?php } ?>
     </select>
 </div>
+<script>
+        $(document).on('click','#compagnie',function(){
+            var compagnie=$("#compagnie").val();
+            ajaxSendRequest("POST","statistique/getNavire","compagnie="+compagnie,function(data){
+                //méthod success
+                var navire=$("#navire");
+                navire.show();
+                navire.find("#selection-navire").html(data);
+            },function(error){
+                alert(error);
+            });
+        });
+</script>

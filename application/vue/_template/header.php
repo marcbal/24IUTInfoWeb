@@ -12,6 +12,9 @@
     <link href="<?php echo URL; ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/navbar-fixed-top.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="public/js/ajax.js"></script>
+
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -57,19 +60,37 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">Menu</li>
-                        <li>
-                            <a href="<?php echo URL . 'protege/index'; ?>">Accès restreint</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo URL . 'help/index'; ?>">Aide</a>
-                        </li>
+                        <li class="dropdown-header">Actions</li>
+
+                        <?php
+
+                        if (Session::get('user_type') === USER_TYPE_AGENT) {
+                            echo '<li>';
+                            echo '<a href="' . URL . 'agent/liste_client">Liste client</a>';
+                            echo '</li>';
+
+                            echo '<li>';
+                            echo '<a href="' . URL . 'agent/liste_compagnie">Liste compagnie</a>';
+                            echo '</li>';
+
+                            echo '<li>';
+                            echo '<a href="' . URL . 'agent/liste_agent">Liste agent</a>';
+                            echo '</li>';
+                        }
+
+                        if (Session::get('user_type') === USER_TYPE_AGENT or Session::get('user_type') === USER_TYPE_COMPAGNIE) {
+                            echo '<li>';
+                            echo '<a href="' . URL . 'statistique/index">type de mouvement</a>';
+                            echo '</li>';
+                        }
+
+                        ?>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <?php if (Session::get('user_logged_in')) { ?>
-                    <li><p class="navbar-text">Bienvenue <?php echo Session::get('user_name'); ?></p></li>
+                <?php if (Session::isLogin()) { ?>
+                    <li><p class="navbar-text">Bienvenue ! </p></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mon compte<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -91,13 +112,12 @@
                             <li>
                                 <a href="<?php echo URL; ?>login/changepassword">Change mon mot de passe</a>
                             </li>
-                            <li>
-                                
-                            </li>
+
                         </ul>
                     </li>
-                <?php } else { ?>
                     <li><a href="connexion/disconnect">Déconnexion</a></li>
+                <?php } else { ?>
+
                     <li><a href="<?php echo URL . 'login/register'; ?>">Inscription</a></li>
                 <?php } ?>
             </ul>
@@ -107,4 +127,3 @@
 <div class="container">
 
 
-</div>
