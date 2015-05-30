@@ -23,7 +23,7 @@ class Inscription extends Controleur
 
 
     public function register($args) {
-        if(!Session::isLogin()) {
+        if(Session::isLogin()) {
             echo 'Vous êtes déjà connecté';
             return false;
         }
