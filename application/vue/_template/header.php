@@ -92,12 +92,12 @@
                                 <a href="<?php echo URL; ?>login/changepassword">Change mon mot de passe</a>
                             </li>
                             <li>
-                                <a href="<?php echo URL; ?>login/logout">Logout</a>
+                                
                             </li>
                         </ul>
                     </li>
                 <?php } else { ?>
-                    <li><a href="<?php echo URL . 'login'; ?>">Login</a></li>
+                    <li><a href="connexion/disconnect">Déconnexion</a></li>
                     <li><a href="<?php echo URL . 'login/register'; ?>">Inscription</a></li>
                 <?php } ?>
             </ul>
