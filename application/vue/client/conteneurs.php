@@ -12,6 +12,7 @@
 <table class="table">
     <tr>
         <th> id conteneur</th>
+        <th> capacite</th>
         <th> nb chargement</th>
         <th> nb dechargement</th>
     </tr>
@@ -21,6 +22,8 @@
         echo '<tr>';
 
         echo '<td>' . $conteneur->getId() . '</td>';
+        echo '<td>' . $conteneur->capacite . '</td>';
+
         echo '<td>' . $conteneur->nbC.'</td>';
             echo '<td>' . $conteneur->nbD . '</td>';
 
