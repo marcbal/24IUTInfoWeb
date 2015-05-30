@@ -25,7 +25,7 @@ class Inscription extends Controleur
     public function register($args) {
         if(Session::isLogin()) {
             echo 'Vous êtes déjà connecté';
-            return false;
+            return ;
         }
 
         $this->loadModel('Users');
@@ -36,6 +36,9 @@ class Inscription extends Controleur
         $pass1 = $_POST['pass'];
         $pass2 = $_POST['pass2'];
         $checkResponse = "";
+
+
+        var_dump($type);
 
         if($type == 1) {   // agent
             echo 'fuck1';
