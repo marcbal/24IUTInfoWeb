@@ -26,6 +26,8 @@ class Compagnie extends Controleur
     }
 
     public function navires(){
+        parent::loadModel('Compagnies');
+
         $query = new CompagniesSQL();
         $compagnie = $query->findById(Session::get('id'));
 
