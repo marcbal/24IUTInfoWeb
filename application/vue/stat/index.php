@@ -38,10 +38,12 @@
         </select>
     </div>
 </div>
-
-    <select id="escale" style="display: none" name="escale">
+<div id="escale">
+    <label for="escale">Escale:</label>
+    <select id="escale-selection" style="display: none" name="escale">
 
     </select>
+</div>
 <script>
         $(document).on('click','#compagnie',function(){
             var compagnie=$("#compagnie").val();
@@ -63,8 +65,8 @@
             var navire=$("#selection-navire").val();
             ajaxSendRequest("POST","statistique/getEscale","navire="+navire,function(data){
                 //méthod success
-                var escale=$("#escale");
-                escale.show();
+                var escale=$("#escale-selection");
+                $("#escale").show();
                 escale.html(data);
 
             },function(error){
