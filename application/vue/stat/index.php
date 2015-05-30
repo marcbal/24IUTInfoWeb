@@ -13,7 +13,7 @@
         <option value="<?php echo $compagnie->getId();?>" ><?php  echo $compagnie->nom ?></option>
     <?php } ?>
 </select>
-<input name="annee" type="num" />
+<label for="annee">Année:</label><input id="annee" name="annee" type="num" />
 <select>
     <option value="1">Janvier</option>
     <option value="2">Février</option>
