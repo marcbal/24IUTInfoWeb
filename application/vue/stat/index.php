@@ -44,7 +44,7 @@
     </select>
 </div>
 <script>
-    $(document).on('change','#navire',function(){
+    $(document).on('click','#navire',function(){
         var compagnie=$("#compagnie").val();
         ajaxSendRequest("GET","statistique/getNavire","compagnie="+compagnie,function(data){
             //méthod success
