@@ -9,6 +9,16 @@
 class Clients extends Table{
 
     public $nom;
+    public $adresse;
+
+
+    public function __construct($nom="", $adresse="") {
+        $this->nom = $nom;
+        $this->adresse = $adresse;
+    }
+
+
+    /*
     public $rue;
     public $ville;
     public $code_postale;
@@ -24,5 +34,5 @@ class Clients extends Table{
         $this->code_postale = $code_postale;
         $this->pays = $pays;
     }
-
+    */
 }
