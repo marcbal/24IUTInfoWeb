@@ -47,6 +47,7 @@ class Statistique extends Controleur{
             $navireModele=new NaviresSQL();
             $navires[]=$navireModele->findById($cn->id_navire);
         }
+        var_dump($navires);
         require 'application/vue/stat/getNavire.php';
     }
     public function getEscale(){
