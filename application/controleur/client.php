@@ -28,7 +28,7 @@ class Client extends Controleur
         $queryClient = new ClientsSQL();
 
         if ($id == false) {
-            $client = $query->findById(Session::get('id'));
+            $client = $query->findById(Session::get('user_id'));
 
         }
         else {
