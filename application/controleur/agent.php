@@ -13,11 +13,26 @@ class Agent extends Controleur
         parent::__construct();
         if (!Session::isLogin())
             Redirect::login();
+        if(Session::get('user_type')!= USER_TYPE_AGENT)
+            Redirect::to('');
     }
 
 
-    public function index()
+    public function index($id=false)
     {
+
+        parent::loadModel('Users');
+
+        $query = new UsersSQL();
+
+        if(!$id){
+            $agent = $query->findById(Session::get('id'));
+        }
+        else{
+            $agent = $query->findById($id);
+            if($agent === null)
+                Redirect::to('');
+        }
 
         require 'application/vue/_template/header.php';
         require 'application/vue/agent/index.php';
@@ -41,10 +56,10 @@ class Agent extends Controleur
         parent::loadModel('Users');
         $queryUsers = new UsersSQL();
 
-        $clients = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_COMPAGNIE))->execute();
+        $compagnies = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_COMPAGNIE))->execute();
 
         require 'application/vue/_template/header.php';
-        require 'application/vue/agent/compagnie.php';
+        require 'application/vue/agent/liste_compagnie.php';
         require 'application/vue/_template/footer.php';
 
     }
@@ -53,7 +68,7 @@ class Agent extends Controleur
         parent::loadModel('Users');
         $queryUsers = new UsersSQL();
 
-        $clients = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_AGENT))->execute();
+        $agents = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_AGENT))->execute();
 
         require 'application/vue/_template/header.php';
         require 'application/vue/agent/liste_agent.php';

@@ -9,5 +9,5 @@
 
 
 foreach($clients as $client){
-    echo '<a href='.URL.'client/"'.$client->getId().'">'.$client->user_email.'<a>';
+    echo '<a href='.URL.'client/'.$client->getId().'>'.$client->user_email.'<a>';
 }

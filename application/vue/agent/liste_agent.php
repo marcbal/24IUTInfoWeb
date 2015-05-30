@@ -6,6 +6,6 @@
  * Time: 03:34
  */
 
-foreach($clients as $client){
-    echo '<a href='.URL.'client/"'.$client->getId().'">'.$client->user_email.'<a>';
+foreach($agents as $agent){
+    echo '<a href='.URL.'agent/index/'.$agent->getId().'>'.$agent->user_email.'<a>';
 }
