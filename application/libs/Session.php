@@ -146,7 +146,7 @@ class Session
         var_dump($agent);
         $agent->save();
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', "","", $agent->getId());
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', null,null, $agent->getId());
         var_dump($user);
 		$user->save();
         echo 'fuck3';
