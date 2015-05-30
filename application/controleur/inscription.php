@@ -40,7 +40,7 @@ class Inscription extends Controleur
 
         var_dump($type);
 
-        if($type == 1) {   // agent
+        if($type == '0') {   // agent
             echo 'fuck1';
             $this->loadModel('Agents');
             $checkResponse = Session::registerAgent($email, $pass1, $pass2);
@@ -48,14 +48,14 @@ class Inscription extends Controleur
         }
 
 
-        else if($type == 2) {  // compagnie
+        else if($type == '1') {  // compagnie
             $this->loadModel('Compagnies');
             $nom = $_POST['nom_compagnie'];
             $pays = $_POST['pays_compagnie'];
             $checkResponse = Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
         }
 
-        else if($type == 3) {
+        else if($type == '2') {
             $this->loadModel('Clients');
             $nom = $_POST['nom_client'];
             $adresse = $_POST['adresse_pays'];
