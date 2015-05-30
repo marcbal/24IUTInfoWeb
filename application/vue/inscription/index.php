@@ -14,6 +14,7 @@
 
 
         <div id="type_0" >
+            <div class="row">
             <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email : </label>
                         <div class="col-sm-5">
@@ -21,17 +22,21 @@
                                    placeholder="exemple@email.com" required>
                         </div>
             </div>
+            </div>
+
+            <div class="row">
             <div class="form-group">
                         <label for="password" class="col-sm-2 control-label">Mot de passe : </label>
                         <div class="col-sm-5">
                             <input type="password" class="form-control"  name="password" placeholder="Entrez le mot de passe ici" required>
                         </div>
             </div>
+            </div>
 
         </div>
         <div id="type_1" style="display:none;">
                 
-            <div class="form-group">     
+            <div class="form-group">   
                 <label for="nom" class="col-sm-2 control-label">Nom : </label>
                 <div class="col-sm-5">
                     <input type="nom"  class="form-control" name="clientname" placeholder="Entrez le nom ici" required>
