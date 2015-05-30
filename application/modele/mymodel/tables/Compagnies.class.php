@@ -3,20 +3,22 @@
  * Created by PhpStorm.
  * User: antoine
  * Date: 29/05/2015
- * Time: 23:27
+ * Time: 23:22
  */
 
-class Navire extends Table{
+class Compagnies extends Table{
+
 
     public $nom;
 
-    public $capacite;
+    public $pays;
 
-    public function __construct($nom = "", $capacite = ""){
+
+    public function __construct($nom = "", $pays = ""){
         parent::__construct();
 
-        $this->capacite = $capacite;
         $this->nom = $nom;
+        $this->pays = $pays;
 
     }
 

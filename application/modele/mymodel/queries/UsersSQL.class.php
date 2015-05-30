@@ -1,5 +1,5 @@
 <?php
-class UserSQL extends Query {
+class UsersSQL extends Query {
 
 
 }

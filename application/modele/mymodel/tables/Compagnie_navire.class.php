@@ -6,7 +6,7 @@
  * Time: 00:29
  */
 
-class Compagnie_navire extends Table {
+class Compagnie_navires extends Table {
 
     public $id_navire;
     public $id_compagnie;

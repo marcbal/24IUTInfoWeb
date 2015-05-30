@@ -6,7 +6,7 @@
  * Time: 00:57
  */
 
-class Escale extends Table{
+class Escales extends Table{
 
     public $date_entree;
     public $date_sortie;

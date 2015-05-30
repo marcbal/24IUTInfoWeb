@@ -6,6 +6,6 @@
  * Time: 23:13
  */
 
-class MouvementSQL extends Query{
+class MouvementsSQL extends Query{
 
 }

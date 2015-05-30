@@ -3,7 +3,7 @@
 -- Create tables
 CREATE TABLE IF NOT EXISTS compagnies
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     pays VARCHAR(255),
     PRIMARY KEY(id)
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS compagnies
 
 CREATE TABLE IF NOT EXISTS clients
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     rue VARCHAR(255),
     ville VARCHAR(255),
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS clients
 
 CREATE TABLE IF NOT EXISTS navire
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     capacite INTEGER,
     PRIMARY KEY(id)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS transporters
 
 CREATE TABLE IF NOT EXISTS conteneurs
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     capacite INTEGER,
     id_client INTEGER,
     PRIMARY KEY(id)
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS conteneurs
 
 CREATE TABLE IF NOT EXISTS users
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     user_password_hash VARCHAR(255),
     user_email VARCHAR(255),
     user_type VARCHAR(255),
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS users
 
 CREATE TABLE IF NOT EXISTS mouvements
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     type VARCHAR(255),
     id_conteneur INTEGER,
     id_escale INTEGER,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS mouvements
 
 CREATE TABLE IF NOT EXISTS escales
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     date_entree DATE,
     date_sortie DATE,
     PRIMARY KEY(id)
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS escales
 
 CREATE TABLE IF NOT EXISTS agents
 (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     PRIMARY KEY(id)
 );
 

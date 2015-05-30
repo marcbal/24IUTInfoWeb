@@ -3,9 +3,10 @@
  * Created by PhpStorm.
  * User: antoine
  * Date: 29/05/2015
- * Time: 23:13
+ * Time: 23:14
  */
 
-class NavireSQL extends Query{
+class Compagnie_naviresSQL extends Query
+{
 
 }

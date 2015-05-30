@@ -6,7 +6,7 @@
  * Time: 23:32
  */
 
-class Transporter extends Table{
+class Transporters extends Table{
 
 
     public $id_navire;
