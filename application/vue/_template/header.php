@@ -83,7 +83,7 @@
                             echo '<a href="' . URL . 'statistique/index">type de mouvement</a>';
                             echo '</li>';
                         }
-                        if (Session::get('user_type') === USER_TYPE_COMPAGNIE) {
+                        if (Session::get('user_type') === USER_TYPE_CLIENT) {
                             echo '<li>';
                             echo '<a href="' . URL . 'client/conteneurs">Mes conteneurs</a>';
                             echo '</li>';
