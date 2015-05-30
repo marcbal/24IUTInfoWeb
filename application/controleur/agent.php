@@ -29,7 +29,8 @@ class Agent extends Controleur
             $agent = $query->findById(Session::get('id'));
         }
         else{
-            $agent = $query->findById($id);
+            //print_r($id);
+            $agent = $query->findById($id[0]);
             if($agent === null)
                 Redirect::to('');
         }
