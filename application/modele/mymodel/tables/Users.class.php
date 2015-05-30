@@ -4,7 +4,7 @@ class Users extends Table {
     public $user_password_hash;
     public $user_email;
 
-    public $user_type;
+    public $user_type; // ENUM agent, compagnie, client
     public $id_client;
     public $id_compagnie;
     public $id_agent;

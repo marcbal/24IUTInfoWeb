@@ -5,7 +5,7 @@
 <section class="loginform">
 
 
-    <form class="form-horizontal" role="form" action="<?php echo URL; ?>/connexion/verification" method="post">
+    <form class="form-horizontal" role="form" action="<?php echo URL; ?>connexion/verification" method="post">
 
 
         <div class="form-group">
