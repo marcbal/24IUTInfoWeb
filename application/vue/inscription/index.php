@@ -35,7 +35,7 @@
             <div class="form-group">     
                 <label for="nom" class="col-sm-2 control-label">Nom : </label>
                 <div class="col-sm-5">
-                    <input type="nom"  class="form-control" name="clientname" placeholder="etrez le nom ici" required>
+                    <input type="nom"  class="form-control" name="clientname" placeholder="Entrez le nom ici" required>
                 </div>
             </div>
 
@@ -66,14 +66,14 @@
             <div class="form-group">      
                 <label for="nom" class="col-sm-2 control-label">Nom : </label>
                 <div class="col-sm-5">
-                    <input type="nom"  class="form-control" name="clientname" placeholder="etrez le nom ici" required>
+                    <input type="nom"  class="form-control" name="clientname" placeholder="Entrez le nom ici" required>
                 </div>
             </div>
 
             <div class="form-group">        
                 <label for="adresse" class="col-sm-2 control-label">Adresse : </label>
                 <div class="col-sm-5">
-                    <input type="adresse"  class="form-control" name="adresse" placeholder="entrez l'adresse ici" required>
+                    <input type="adresse"  class="form-control" name="adresse" placeholder="Entrez l'adresse ici" required>
                 </div>
             </div>
 
