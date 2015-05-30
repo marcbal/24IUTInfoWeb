@@ -42,21 +42,21 @@ class Inscription extends Controleur
 
         if($type == '0') {   // agent
             echo 'fuck1';
-            $this->loadModel('Agents');
+            parent::loadModel('Agents');
             $checkResponse = Session::registerAgent($email, $pass1, $pass2);
 
         }
 
 
         else if($type == '1') {  // compagnie
-            $this->loadModel('Compagnies');
+            parent::loadModel('Compagnies');
             $nom = $_POST['nom_compagnie'];
             $pays = $_POST['pays_compagnie'];
             $checkResponse = Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
         }
 
         else if($type == '2') {
-            $this->loadModel('Clients');
+            parent::loadModel('Clients');
             $nom = $_POST['nom_client'];
             $adresse = $_POST['adresse_pays'];
             $checkResponse = Session::registerClient($email, $pass1, $pass2, $nom, $adresse);
