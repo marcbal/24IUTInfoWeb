@@ -7,7 +7,7 @@
  */
 ?>
 
-<select id="#compagnie" name="compagnie">
+<select id="compagnie" name="compagnie">
     <option value=""></option>
     <?php foreach($compagnies as $compagnie){
      ?>
@@ -45,7 +45,6 @@
     </select>
 </div>
 <script>
-    $(document).ready(function() {
         $(document).on('click','#compagnie',function(){
             var compagnie=$("#compagnie").val();
             ajaxSendRequest("GET","statistique/getNavire","compagnie="+compagnie,function(data){
@@ -57,5 +56,4 @@
                 alert(error);
             });
         });
-    });
 </script>
