@@ -7,6 +7,6 @@
  */
 
 
-foreach($clients as $client){
-    echo '<a href='.URL.'client/"'.$client->getId().'">'.$client->user_email.'<a>';
+foreach($compagnies as $compagnie){
+    echo '<a href='.URL.'client/"'.$compagnie->getId().'">'.$compagnie->user_email.'<a>';
 }

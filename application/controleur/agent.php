@@ -41,10 +41,10 @@ class Agent extends Controleur
         parent::loadModel('Users');
         $queryUsers = new UsersSQL();
 
-        $clients = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_COMPAGNIE))->execute();
+        $compagnies = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_COMPAGNIE))->execute();
 
         require 'application/vue/_template/header.php';
-        require 'application/vue/agent/compagnie.php';
+        require 'application/vue/agent/liste_compagnie.php';
         require 'application/vue/_template/footer.php';
 
     }
@@ -53,7 +53,7 @@ class Agent extends Controleur
         parent::loadModel('Users');
         $queryUsers = new UsersSQL();
 
-        $clients = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_AGENT))->execute();
+        $agents = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_AGENT))->execute();
 
         require 'application/vue/_template/header.php';
         require 'application/vue/agent/liste_agent.php';
