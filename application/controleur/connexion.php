@@ -18,13 +18,15 @@ class Connexion extends Controleur
         {
             Redirect::home();
         }
-        $mail = $_POST['mail'];
-        $pass = $_POST['pass'];
+        $mail = $_POST['usermail'];
+        $pass = $_POST['password'];
         parent::loadModel('Users');
         if(Session::login($mail, $pass) === true)
-            Redirect::home();
+                echo "fuck";
+            //Redirect::home();
         else
-            Redirect::login();
+            echo "you";
+            //Redirect::login();
     }
 
 }
