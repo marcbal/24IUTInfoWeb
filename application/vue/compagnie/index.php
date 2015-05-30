@@ -10,4 +10,11 @@
 ?>
 
 
-vous étes une compagnie
+<div class="col-md-6">
+    email : <?php echo $compagnie->user_email; ?> <br/>
+    nom : <?php echo $compagnie->nom; ?> <br/>
+    pays : <?php echo $compagnie->pays; ?> <br/>
+
+
+
+</div>

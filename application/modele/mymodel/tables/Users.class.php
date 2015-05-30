@@ -24,5 +24,11 @@ class Users extends Table {
         $this->adresse = $tmp->adresse;
     }
 
+    public function loadCompagnie($queryCompagnie){
+        $tmp = $queryCompagnie->findById($this->id_compagnie);
+        $this->nom = $tmp->nom;
+        $this->pays = $tmp->pays;
+    }
+
 }
 ?>

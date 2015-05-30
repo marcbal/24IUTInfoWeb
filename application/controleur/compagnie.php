@@ -15,16 +15,32 @@ class Compagnie extends Controleur
             Redirect::login ();
     }
 
-    public function index()
+    public function index($id = false)
     {
 
+        parent::loadModel('Users');
         parent::loadModel('Compagnies');
-        $query = new CompagniesSQL();
-        $compagnie = $query->findById(Session::get('id'));
+
+        $query = new UsersSQL();
+        $queryCompagnie = new CompagniesSQL();
+
+        if ($id == false) {
+            $compagnie = $query->findById(Session::get('user_id'));
+
+        }
+        else {
+            $compagnie = $query->findById($id[0]);
+
+        }
+        if ($compagnie === null)
+            Redirect::to('');
+
+        $compagnie->loadCompagnie($queryCompagnie);
 
         require 'application/vue/_template/header.php';
         require 'application/vue/compagnie/index.php';
         require 'application/vue/_template/footer.php';
+
     }
 
     public function navires(){
