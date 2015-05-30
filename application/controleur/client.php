@@ -34,9 +34,12 @@ class Client extends Controleur
         else {
             //print_r($id);
             $client = $query->findById($id[0]);
-            if ($client === null)
-                Redirect::to('');
+
         }
+        if ($client === null)
+            Redirect::to('');
+
+        print_r($client);
         $client->loadClient($queryClient);
 
         require 'application/vue/_template/header.php';
