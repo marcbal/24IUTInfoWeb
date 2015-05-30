@@ -47,7 +47,7 @@
 <script>
         $(document).on('click','#compagnie',function(){
             var compagnie=$("#compagnie").val();
-            ajaxSendRequest("GET","statistique/getNavire","compagnie="+compagnie,function(data){
+            ajaxSendRequest("POST","statistique/getNavire","compagnie="+compagnie,function(data){
                 //méthod success
                 var navire=$("#navire");
                 navire.show();
