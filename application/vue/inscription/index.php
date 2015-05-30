@@ -5,21 +5,20 @@
 <section class="enregistrementform">
 
     <form name="enregistrement" action="index_submit" method="get" accept-charset="utf-8">
-        <div class="form-group">
         Quel est votre type ?
         <SELECT name="type" size="1" id="type_selector">
             <OPTION value="0">Agent portuaire</option>
             <OPTION value="1">Compagnie</option>
             <OPTION value="2">Client</option>
         </SELECT>
-        </div>
 
-        <div id="type_0">
 
+        <div id="type_0" >
             <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email : </label>
                         <div class="col-sm-5">
-                            <input type="email" class="form-control" name="email" placeholder="Entrez l'adresse mail ici" required>
+                            <input type="email" class="form-control" id="agentmail" name="agentmail"
+                                   placeholder="exemple@email.com" required>
                         </div>
             </div>
             <div class="form-group">
@@ -49,7 +48,8 @@
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Email : </label>
                 <div class="col-sm-5">
-                    <input type="email"  class="form-control" name="email" placeholder="Entrez l'adresse mail ici" required>
+                    <input type="email" class="form-control" id="compagniemail" name="agentmail"
+                           placeholder="exemple@email.com" required>
                 </div>
             </div>
 
@@ -87,7 +87,8 @@
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Email : </label>
                 <div class="col-sm-5">
-                    <input type="email" class="form-control"  name="email" placeholder="Entrez l'adresse mail ici" required>
+                    <input type="email" class="form-control" id="clientmail" name="clientmail"
+                           placeholder="exemple@email.com" required>
                 </div>
             </div>
 
