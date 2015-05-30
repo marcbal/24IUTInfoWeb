@@ -21,6 +21,6 @@ define('PASSWORD_MIN_SIZE', 8);
 
 
 //les type d'utilisateur
-define('USER_TYPE_COMPAGNIE','');  //TODO a faire
-define('USER_TYPE_AGENT','');
-define('USER_TYPE_CLIENT','');
+define('USER_TYPE_COMPAGNIE','compagnie');  //TODO a faire
+define('USER_TYPE_AGENT','agent');
+define('USER_TYPE_CLIENT','client');
