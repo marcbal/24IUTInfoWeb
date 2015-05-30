@@ -11,8 +11,10 @@ class Compagnie extends Controleur
 {
     public function __construct(){
         parent::__construct();
-        if(!Session::isLogin())
-            Redirect::login ();
+        if (!Session::isLogin())
+            Redirect::login();
+        if (Session::get('user_type') != USER_TYPE_AGENT and Session::get('user_type') != USER_TYPE_COMPAGNIE)
+            Redirect::to('');
     }
 
     public function index($id = false)
