@@ -45,15 +45,17 @@
     </select>
 </div>
 <script>
-    $(document).on('click','#compagnie',function(){
-        var compagnie=$("#compagnie").val();
-        ajaxSendRequest("GET","statistique/getNavire","compagnie="+compagnie,function(data){
-            //méthod success
-            var navire=$("#navire");
-            navire.show();
-            navire.find("#selection-navire").html(data);
-        },function(error){
-            alert(error);
+    $(document).ready(function() {
+        $(document).on('click','#compagnie',function(){
+            var compagnie=$("#compagnie").val();
+            ajaxSendRequest("GET","statistique/getNavire","compagnie="+compagnie,function(data){
+                //méthod success
+                var navire=$("#navire");
+                navire.show();
+                navire.find("#selection-navire").html(data);
+            },function(error){
+                alert(error);
+            });
         });
-    })
+    });
 </script>
