@@ -29,7 +29,7 @@ class Client extends Controleur
 
         if (Session::get('user_type') != USER_TYPE_CLIENT or $id == false) {
             $client = $query->findById(Session::get('id'));
-            $tmp = $queryClient->findById(Session::get('id_client'));
+            $tmp = $queryClient->findById($client->id_client);
             $client->nom = $tmp->nom;
             $client->adresse = $tmp->adresse;
         }
