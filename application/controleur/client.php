@@ -22,14 +22,16 @@ class Client extends Controleur
     {
 
         parent::loadModel('Users');
-        parent::loadModel('Client');
+        parent::loadModel('Clients');
 
         $query = new UsersSQL();
         $queryClient = new ClientsSQL();
 
         if (Session::get('user_type') != USER_TYPE_CLIENT or $id == false) {
             $client = $query->findById(Session::get('id'));
-            $tmp = $queryClient->findById('');
+            $tmp = $queryClient->findById(Session::get('id_client'));
+            $client->nom = $tmp->nom;
+            $client->adresse = $tmp->adresse;
         }
 
 
