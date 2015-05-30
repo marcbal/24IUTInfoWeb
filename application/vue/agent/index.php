@@ -6,12 +6,11 @@
  * Time: 03:14
  */
 
-print_r($agent);
 ?>
 
 
 <div class="col-md-6">
-    email : <?php echo $agent->email; ?> <br/>
+    email : <?php echo $agent->user_email; ?> <br/>
 
 
 
