@@ -8,4 +8,9 @@
 ?>
 
 
-vous étes un agent
+<div class="col-md-6">
+    email : <?php echo $agent->email; ?> <br/>
+
+
+
+</div>
