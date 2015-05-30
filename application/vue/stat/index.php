@@ -85,10 +85,10 @@
         });
         $(document).on('change','#escale',function(){
             send();
-        };
+        });
         $(document).on('change','#mois',function(){
             send();
-        };
+        });
         function send(){
             var compagnie=$("#compagnie").val();
             var annee=$("input[name='annee']").val();
