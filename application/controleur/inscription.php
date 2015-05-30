@@ -23,37 +23,38 @@ class Inscription extends Controleur
 
 
     public function register($args) {
-        if(!Session::isLogin()) {
+        if(Session::isLogin()) {
             echo 'Vous êtes déjà connecté';
             return false;
         }
 
         $this->loadModel('Users');
 
-        $type = $_POST['type'];
+        $type = $_GET['type'];
 
-        $email = $_POST['mail'];
-        $pass1 = $_POST['pass'];
-        $pass2 = $_POST['pass2'];
+        $email = $_GET['mail'];
+        $pass1 = $_GET['pass'];
+        $pass2 = $_GET['pass2'];
         $checkResponse = "";
 
         if($type == 1) {   // agent
             $this->loadModel('Agents');
             $checkResponse = Session::registerAgent($email, $pass1, $pass2);
+            echo 'fuck';
         }
 
 
         else if($type == 2) {  // compagnie
             $this->loadModel('Compagnies');
-            $nom = $_POST['nom_compagnie'];
-            $pays = $_POST['pays_compagnie'];
+            $nom = $_GET['nom_compagnie'];
+            $pays = $_GET['pays_compagnie'];
             $checkResponse = Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
         }
 
         else if($type == 3) {
             $this->loadModel('Clients');
-            $nom = $_POST['nom_client'];
-            $adresse = $_POST['adresse_pays'];
+            $nom = $_GET['nom_client'];
+            $adresse = $_GET['adresse_pays'];
             $checkResponse = Session::registerClient($email, $pass1, $pass2, $nom, $adresse);
 
         }
