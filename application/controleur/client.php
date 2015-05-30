@@ -29,17 +29,17 @@ class Client extends Controleur
 
         if (Session::get('user_type') != USER_TYPE_CLIENT or $id == false) {
             $client = $query->findById(Session::get('id'));
-            
+
         }
 
 
 
         if (!$id) {
-            $agent = $query->findById(Session::get('id'));
+            $client = $query->findById(Session::get('id'));
         } else {
             //print_r($id);
-            $agent = $query->findById($id[0]);
-            if ($agent === null)
+            $client = $query->findById($id[0]);
+            if ($client === null)
                 Redirect::to('');
         }
 
