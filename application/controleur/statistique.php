@@ -72,7 +72,7 @@ class Statistique extends Controleur{
     }
     public function getStatWithoutEscale(){
         parent::loadModel("Compagnies");
-        parent::loadModel("Navire");
+        parent::loadModel("Navires");
         parent::loadModel("Conteneurs");
         $compagnieModele=new CompagniesSQL();
         $compagnie=$compagnieModele->findById($_POST["compagnie"]);
