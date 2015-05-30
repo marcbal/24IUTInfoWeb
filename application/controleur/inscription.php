@@ -35,10 +35,11 @@ class Inscription extends Controleur
         $email = $_POST['mail'];
         $pass1 = $_POST['pass'];
         $pass2 = $_POST['pass2'];
+        $checkResponse = "";
 
         if($type == 1) {   // agent
             $this->loadModel('Agents');
-            Session::registerAgent($email, $pass1, $pass2);
+            $checkResponse = Session::registerAgent($email, $pass1, $pass2);
         }
 
 
@@ -46,16 +47,21 @@ class Inscription extends Controleur
             $this->loadModel('Compagnies');
             $nom = $_POST['nom_compagnie'];
             $pays = $_POST['pays_compagnie'];
-            Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
+            $checkResponse = Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
         }
 
         else if($type == 3) {
             $this->loadModel('Clients');
             $nom = $_POST['nom_client'];
             $adresse = $_POST['adresse_pays'];
-            Session::registerClient($email, $pass1, $pass2, $nom, $adresse);
+            $checkResponse = Session::registerClient($email, $pass1, $pass2, $nom, $adresse);
 
         }
+
+        if($checkResponse === true) {
+            header('Location: '.URL.'acceuil');
+        }
+        
 
     }
 
