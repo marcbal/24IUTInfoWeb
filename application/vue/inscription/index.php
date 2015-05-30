@@ -1,3 +1,6 @@
+
+<div class="col_12">
+
 <section class="enregistrementform">
     <form name="enregistrement" action="index_submit" method="get" accept-charset="utf-8">
         Quel est votre type ?
@@ -68,7 +71,8 @@
                 <label for="password">Mot de passe : </label>
                 <input type="password" name="password" placeholder="Entrez le mot de passe ici" required>
             </div>
-
         </div>
     </form>
 </section>
+
+</div>
