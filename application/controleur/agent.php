@@ -29,7 +29,7 @@ class Agent extends Controleur
         parent::loadModel('Users');
         $queryUsers = new UsersSQL();
 
-        $clients = $queryUsers->findWithCondition('id_type = ?',array(USER_TYPE_CLIENT))->execute();
+        $clients = $queryUsers->findWithCondition('user_type = ?',array(USER_TYPE_CLIENT))->execute();
 
         require 'application/vue/_template/header.php';
         require 'application/vue/agent/liste_client.php';

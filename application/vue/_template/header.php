@@ -61,6 +61,16 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header">Actions</li>
+
+                        <?php
+
+                        if (Session::get('user_type') === USER_TYPE_AGENT) {
+                            echo '<li>';
+                            echo '<a href="' . URL . 'agent/liste_client">Liste client</a>';
+                            echo '</li>';
+                        }
+                        ?>
+                        ?>
                         <li>
                             <a href="<?php echo URL . 'protege/index'; ?>">Accès restreint</a>
                         </li>
@@ -99,7 +109,7 @@
                     </li>
                     <li><a href="connexion/disconnect">Déconnexion</a></li>
                 <?php } else { ?>
-                    
+
                     <li><a href="<?php echo URL . 'login/register'; ?>">Inscription</a></li>
                 <?php } ?>
             </ul>
