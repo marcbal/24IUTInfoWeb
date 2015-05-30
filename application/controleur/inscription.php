@@ -61,7 +61,7 @@ class Inscription extends Controleur
         if($checkResponse === true) {
             header('Location: '.URL.'acceuil');
         }
-        
+
 
     }
 
