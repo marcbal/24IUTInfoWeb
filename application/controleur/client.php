@@ -13,11 +13,39 @@ class Client extends Controleur
         parent::__construct();
         if (!Session::isLogin())
             Redirect::login();
+        if (Session::get('user_type') != USER_TYPE_AGENT and Session::get('user_type') != USER_TYPE_CLIENT)
+            Redirect::to('');
     }
 
 
-    public function index()
+    public function index($id = false)
     {
+
+        parent::loadModel('Users');
+        parent::loadModel('Client');
+
+        $query = new UsersSQL();
+        $queryClient = new ClientsSQL();
+
+        if (Session::get('user_type') != USER_TYPE_CLIENT or $id == false) {
+            $client = $query->findById(Session::get('id'));
+            $tmp = $queryClient->findById('');
+        }
+
+
+
+        if (!$id) {
+            $agent = $query->findById(Session::get('id'));
+        } else {
+            //print_r($id);
+            $agent = $query->findById($id[0]);
+            if ($agent === null)
+                Redirect::to('');
+        }
+
+        require 'application/vue/_template/header.php';
+        require 'application/vue/client/index.php';
+        require 'application/vue/_template/footer.php';
 
     }
 }
