@@ -6,7 +6,7 @@
  * Time: 02:15
  */
 ?>
-
+<label for="compagnie">Compagnie:</label>
 <select id="compagnie" name="compagnie">
     <option value="" selected></option>
     <?php foreach($compagnies as $compagnie){
@@ -17,7 +17,7 @@
 <div id="suite" style="display: none">
     <label for="annee">Année:</label><input id="annee" name="annee" type="number" min="1900" max="2020" value="<?php echo date("Y");?>" />
     <label for="mois">Mois:</label>
-    <select name="mois">
+    <select id="mois" name="mois">
         <option value="1">Janvier</option>
         <option value="2">Février</option>
         <option value="3">Mars</option>
@@ -38,12 +38,19 @@
         </select>
     </div>
 </div>
-<div id="escale">
+<div id="escale" style="display: none">
     <label for="escale">Escale:</label>
-    <select id="escale-selection" style="display: none" name="escale">
+    <select id="escale-selection"  name="escale">
 
     </select>
 </div>
+
+<div id="data">
+    <table>
+
+    </table>
+</div>
+
 <script>
         $(document).on('click','#compagnie',function(){
             var compagnie=$("#compagnie").val();
@@ -56,9 +63,11 @@
                 var navire=$("#navire");
                 $("#suite").show();
                 navire.find("#selection-navire").html(data);
+                send();
             },function(error){
                 alert(error);
             });
+            send();
         });
 
         $(document).on('change','#navire',function(){
@@ -68,9 +77,33 @@
                 var escale=$("#escale-selection");
                 $("#escale").show();
                 escale.html(data);
+                send();
+            },function(error){
+                alert(error);
+            });
+
+        });
+        $(document).on('change','#escale',function(){
+            send();
+        };
+        $(document).on('change','#mois',function(){
+            send();
+        };
+        function send(){
+            var compagnie=$("#compagnie").val();
+            var annee=$("input[name='annee']").val();
+            var mois=$("#mois").val();
+            var navire=$("#selection-navires").val();
+            var escale=$("#escale-selection").val();
+            if(annee.length<4 || !$.isNumeric(annee) || mois=='' || (navire!='' && escale=='')){
+                return false;
+            }
+            ajaxSendRequest("POST","statistique/getStatWithoutEscale","compagnie="+compagnie+"&annee="+annee+"&navire="+navire+"&mois="+mois,function(data){
+                //méthod success
+                $("table").html(data);
 
             },function(error){
                 alert(error);
             });
-        });
+        }
 </script>

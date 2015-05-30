@@ -61,28 +61,58 @@ class Statistique extends Controleur{
         $navireModele=new NaviresSQL();
         $navire=$navireModele->findById($_POST["navire"]);
 
+
+
+            $escaleModele=new EscalesSQL();
+            $escales=$escaleModele->findWithCondition("id_navire=:id",array("id"=>$_POST["navire"]))->execute();
+
+
+        require 'application/vue/stat/getEscale.php';
+
+    }
+    public function getStatWithoutEscale(){
+        parent::loadModel("Compagnies");
+        parent::loadModel("Navire");
+        parent::loadModel("Conteneurs");
+        $compagnieModele=new CompagniesSQL();
+        $compagnie=$compagnieModele->findById($_POST["compagnie"]);
+        $navireSQL=new NaviresSQL();
+        $navire=$navireSQL->findById($_POST["navire"]);
+
         $transporterModele=new TransportersSQL();
-        $transporters=$transporterModele->findWithCondition("id_navire=:id",array("id"=>$_POST["navire"]));
+        $transporters=$transporterModele->findWithCondition("id_navire=:id",array("id"=>$_POST["navire"]))->execute();
 
         $conteneurs=array();
         foreach($transporters as $t){
             $conteneurMoodele=new ConteneursSQL();
-            $conteneurs[]=$conteneurMoodele->findById($t->id_conteneur);
+            $conteneurs[]=$conteneurMoodele->findWithCondition("id=:id and id in (
+            select id_conteneur
+            from mouvements
+            where id_escale in (
+                select id
+                from escale
+                where (year(date_entree)=:annee or year(date_sortie)=:annee ) and
+                (month(date_entree)=:mois or year(date_sortie)=:mois )
+            )",array("id"=>$t->getId(),"annee"=>$_POST["annee"],"mois"=>$_POST["mois"]))->execute();
         }
 
 
-        $mouvements=array();
-        foreach($conteneurs as $c){
-            $mouvementModele=new MouvementsSQL();
-            $mouvements[]=$mouvementModele->findWithCondition("id_conteneur=:id",array("id"=>$c->getId()));
-        }
-        $escales=array();
-        foreach($mouvements as $m){
-            $escaleModele=new EscalesSQL();
-            $escales=$escaleModele->findWithCondition("id_escale=:id",array("id"=>$m->id_escale));
+        $nbC = 0;
+        $nbD = 0;
+
+        parent::loadModel('Mouvements');
+
+        $queryMouvements = new MouvementsSQL();
+
+        foreach($conteneurs as $conteneur){
+            $conteneurs->countMov($queryMouvements);
+            $nbC+=$conteneur->nbC;
+            $nbD+=$conteneur->nbD;
         }
 
-        require 'application/vue/stat/getEscale.php';
+
+
+        require 'application/vue/stat/getStatWithoutEscale.php';
 
     }
 }
