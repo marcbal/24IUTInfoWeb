@@ -8,5 +8,5 @@
 
 
 foreach($compagnies as $compagnie){
-    echo '<a href='.URL.'client/'.$compagnie->getId().'>'.$compagnie->user_email.'<a>';
+    echo '<a href='.URL.'client/index/'.$compagnie->getId().'>'.$compagnie->user_email.'<a>';
 }

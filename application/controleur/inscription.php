@@ -30,29 +30,38 @@ class Inscription extends Controleur
 
         $this->loadModel('Users');
 
-        $email = $_POST['email'];
-        $pass1 = $_POST['pass1'];
+        $type = $_POST['type'];
+
+        $email = $_POST['mail'];
+        $pass1 = $_POST['pass'];
         $pass2 = $_POST['pass2'];
+        $checkResponse = "";
 
-        if($args === "agent") {
+        if($type == 1) {   // agent
             $this->loadModel('Agents');
-            Session::registerAgent($email, $pass1, $pass2);
+            $checkResponse = Session::registerAgent($email, $pass1, $pass2);
         }
 
-        $nom = $_POST['nom'];
 
-        if($args === "compagnie") {
+        else if($type == 2) {  // compagnie
             $this->loadModel('Compagnies');
-            $pays = $_POST['pays'];
-            Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
+            $nom = $_POST['nom_compagnie'];
+            $pays = $_POST['pays_compagnie'];
+            $checkResponse = Session::registerCompagnie($email, $pass1, $pass2, $nom, $pays);
         }
 
-        if($args === "client") {
+        else if($type == 3) {
             $this->loadModel('Clients');
-            $adresse = $_POST['adresse'];
-            Session::registerClient($email, $pass1, $pass2, $nom, $adresse);
+            $nom = $_POST['nom_client'];
+            $adresse = $_POST['adresse_pays'];
+            $checkResponse = Session::registerClient($email, $pass1, $pass2, $nom, $adresse);
 
         }
+
+        if($checkResponse === true) {
+            header('Location: '.URL.'acceuil');
+        }
+
 
     }
 

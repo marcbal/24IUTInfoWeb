@@ -17,5 +17,12 @@ class Users extends Table {
         $this->id_agent = $id_agent;
     }
 
+
+    public function loadClient($queryClient){
+        $tmp = $queryClient->findById($this->id_client);
+        $this->nom = $tmp->nom;
+        $this->adresse = $tmp->adresse;
+    }
+
 }
 ?>

@@ -26,6 +26,7 @@ class Agent extends Controleur
         $query = new UsersSQL();
 
         if(!$id){
+            print_r($_SESSION);
             $agent = $query->findById(Session::get('id'));
         }
         else{

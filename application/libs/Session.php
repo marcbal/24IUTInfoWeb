@@ -159,7 +159,7 @@ class Session
 		$compagnie = new Compagnies($nom, $pays);
         $compagnie->save();
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', "", $compagnie->getId(), "");
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'compagnie', "", $compagnie->getId(), "");
 		$user->save();
 
 		return true;
@@ -175,7 +175,7 @@ class Session
         $client->save();
 
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', $client->getId(),"", "");
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'client', $client->getId(),"", "");
 		$user->save();
 
 		return true;
