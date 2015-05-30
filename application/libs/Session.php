@@ -78,7 +78,7 @@ class Session
 	{
 		if (!NeverTrustUserInput::checkEmail($mail))
 		{
-                    Session::add("login_feedback_positive","Mauvais email ou mot de passe..");    
+                    Session::add("login_feedback_negative'","Mauvais email ou mot de passe..");    
                     return false;
 		}
 		$users = new UsersSQL();
@@ -86,15 +86,14 @@ class Session
 
 		if (count($user) == 0)
 		{
-                    Session::add("login_feedback_positive","Mauvais email ou mot de passe..");    
+                    Session::add("login_feedback_negative'","Mauvais email ou mot de passe..");    
                     return false;
 		}
 		$user = $user[0];
 
-
 		if (!password_verify($pass, $user->user_password_hash))
 		{
-                    Session::add("login_feedback_positive","Mauvais email ou mot de passe..");    
+                    Session::add("login_feedback_negative'","Mauvais email ou mot de passe..");    
                     return false;
 		}
 
@@ -158,10 +157,10 @@ class Session
 		
 	}
         
-        public function renderFeedback($name=''){
+        public static function renderFeedback($name=''){
             $positive = Session::get($name.'_feedback_positive');
             $negative = Session::get($name.'_feedback_negative');
-             require APP . 'application/vue/_templates/feedback.php';
+             require 'application/vue/_template/feedback.php';
             Session::set($name.'_feedback_positive', null);
             Session::set($name.'_feedback_negative', null);
         }
