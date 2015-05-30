@@ -27,7 +27,7 @@ class Inscription extends Controleur
             echo 'Vous êtes déjà connecté';
             return false;
         }
-        echo 'fuck';
+
         $this->loadModel('Users');
 
         $type = $_GET['type'];
