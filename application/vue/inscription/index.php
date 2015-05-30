@@ -7,7 +7,10 @@
             <OPTION value="2">Client </option>
         </SELECT>
         <div id="type_0" >
-            ok
+                    <li><label for="email">Email : </label>
+                        <input type="email" name="email" placeholder="Entrez l'adresse mail ici" required></li>
+                    <li><label for="password">Mot de passe : </label>
+                        <input type="password" name="password" placeholder="Entrez le mot de passe ici" required></li>
         </div>
         <div id="type_1" style="display:none;">
                 <ul>
@@ -15,6 +18,10 @@
                             <input type="nom" name="clientname" placeholder="etrez le nom ici" required></li>
                         <li><label for="pays">Pays : </label>
                             <input type="pays" name="pays" placeholder="Entrez le pays ici" required></li>
+                        <li><label for="email">Email : </label>
+                            <input type="email" name="email" placeholder="Entrez l'adresse mail ici" required></li>
+                        <li><label for="password">Mot de passe : </label>
+                            <input type="password" name="password" placeholder="Entrez le mot de passe ici" required></li>
                 </ul>
 
         </div>
@@ -27,6 +34,10 @@
                             <input type="adresse" name="adresse" placeholder="entrez l'adresse ici" required></li>
                         <li><label for="pays">Pays : </label>
                             <input type="pays" name="pays" placeholder="Entrez le pays ici" required></li>
+                        <li><label for="email">Email : </label>
+                            <input type="email" name="email" placeholder="Entrez l'adresse mail ici" required></li>
+                        <li><label for="password">Mot de passe : </label>
+                            <input type="password" name="password" placeholder="Entrez le mot de passe ici" required></li>
                 </ul>
         </div>
     </form>
