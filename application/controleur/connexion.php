@@ -12,6 +12,11 @@ class Connexion extends Controleur
         require 'application/vue/connexion/index.php';
         require 'application/vue/_template/footer.php';
     }
+    public function disconnect()
+    {
+        Session::destroy();
+        Redirect::home();
+    }
     
     public function verification(){
 	if (Session::isLogin())
@@ -22,11 +27,9 @@ class Connexion extends Controleur
         $pass = $_POST['password'];
         parent::loadModel('Users');
         if(Session::login($mail, $pass) === true)
-                echo "fuck";
-            //Redirect::home();
+            Redirect::home();
         else
-            echo "you";
-            //Redirect::login();
+            Redirect::login();
     }
 
 }

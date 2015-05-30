@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classe qui gère les vérifications des formulaires et autres données provenant des utilisateurs
+ * Classe qui gï¿½re les vï¿½rifications des formulaires et autres donnï¿½es provenant des utilisateurs
  * 
  * Par Marc Baloup
  */
