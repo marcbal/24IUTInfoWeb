@@ -10,7 +10,9 @@
             ok
         </div>
         <div id="type_1" style="display:none;">
-            ok2
+
+
+
         </div>
         <div id="type_2" style="display:none;">
             ok3

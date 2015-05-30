@@ -6,7 +6,7 @@
     <form class="form-horizontal" role="form" action="<?php echo URL; ?>login/login" method="post">
 
         <div class="form-group">
-            <label for="usermail" class="col-sm-2 control-label">Nom login : </label>
+            <label for="usermail" class="col-sm-2 control-label">Adresse mail : </label>
 
             <div class="col-sm-5">
                 <input type="email" class="form-control" id="usermail" name="usermail"
