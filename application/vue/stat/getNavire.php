@@ -6,10 +6,10 @@
  * Time: 03:09
  */
 ?>
-<option value=""></option>
 <?php
     foreach($navires as $n){
     ?>
     <option value="<?php echo $n->getId();?>"><?php echo $n->nom;?></option>
 <?php
 }
+?>
