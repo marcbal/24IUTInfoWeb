@@ -110,51 +110,76 @@ class Session
 		return true;
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static function register($mail, $pass, $pass2)
+
+    public static function registerCommun($mail, $pass, $pass2)
+    {
+        // vérification de la validité des champs
+
+        if (!NeverTrustUserInput::checkEmail($mail))
+            return 'invalid_email';    // email non valide
+
+
+        if (!NeverTrustUserInput::checkPasswordValidity($pass))
+            return 'invalid_password';    // pass non valide
+
+        if ($pass != $pass2)
+            return 'different_password';    // les 2 mots de passes différents
+
+
+        // on vérifie si le mail existe dans la base de donnée
+        $users = new UsersSQL();
+        $user = $users->findByUser_email($mail)->execute();
+        if (count($user) != 0) {
+            return 'email_exist';
+        }
+
+        return true;
+    }
+
+    public static function registerAgent($mail, $pass, $pass2)
 	{
-		// vérification de la validité des champs
-		
-		if (!NeverTrustUserInput::checkEmail($mail))
-			return 'invalid_email';	// email non valide
-		
-		
-		if (!NeverTrustUserInput::checkPasswordValidity($pass))
-			return 'invalid_password';	// pass non valide
-		
-		if ($pass != $pass2)
-			return 'different_password';	// les 2 mots de passes différents
-		
-		
-		
-		
-		// on vérifie si le mail existe dans la base de donnée
-		$users = new UsersSQL();
-		$user = $users->findByUser_email($mail)->execute();
-		if (count($user) != 0) {
-                    return 'email_exist';
-                }
-		
-		
-		
-		
+        $return = Session::registerCommun($mail, $pass, $pass2);
+		if($return !== true) return $return;
+
+		$agent = new Agents();
+        $agent->save();
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT));
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', "","", $agent->getId());
 		$user->save();
 		
 		return true;
 		
-		
-		
+	}
+
+    public static function registerCompagnie($mail, $pass, $pass2, $nom, $pays)
+    {
+        $return = Session::registerCommun($mail, $pass, $pass2);
+		if($return !== true) return $return;
+
+		$compagnie = new Compagnies($nom, $pays);
+        $compagnie->save();
+		// création d'un nouveau Users
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', "", $compagnie->getId(), "");
+		$user->save();
+
+		return true;
+
+	}
+
+    public static function registerClient($mail, $pass, $pass2, $nom, $adresse)
+    {
+        $return = Session::registerCommun($mail, $pass, $pass2);
+		if($return !== true) return $return;
+
+		$client = new Clients($nom, $adresse);
+        $client->save();
+
+		// création d'un nouveau Users
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', $client->getId(),"", "");
+		$user->save();
+
+		return true;
+
 	}
         
         public static function renderFeedback($name=''){
