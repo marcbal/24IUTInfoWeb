@@ -9,7 +9,7 @@
 
 ?>
 
-<table>
+<table class="table">
     <tr>
         <th> id conteneur</th>
         <th> nb chargement</th>
