@@ -46,6 +46,6 @@ class Statistique extends Controleur{
             $navireModele=new NaviresSQL();
             $navires[]=$navireModele->findById($cn->id_navire);
         }
-        require 'application/vue/stat/getNavire';
+        require 'application/vue/stat/getNavire.php';
     }
 }
