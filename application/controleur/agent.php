@@ -24,4 +24,18 @@ class Agent extends Controleur
         require 'application/vue/_template/footer.php';
 
     }
+
+    public function liste_client(){
+        parent::loadModel('Users');
+        $queryUsers = new UsersSQL();
+
+        $clients = $queryUsers->findWithCondition('id_type = ?',array(USER_TYPE_CLIENT))->execute();
+
+        require 'application/vue/_template/header.php';
+        require 'application/vue/agent/liste_client.php';
+        require 'application/vue/_template/footer.php';
+
+    }
+
+
 }
