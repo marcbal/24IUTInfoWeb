@@ -1,6 +1,6 @@
 <section class="loginform">
 
-    <form class="form-horizontal" role="form" action="<?php echo URL; ?>login/login" method="post">
+    <form class="form-horizontal" role="form" action="<?php echo URL; ?>login/verification" method="post">
 
         <div class="form-group">
             <label for="usermail" class="col-sm-2 control-label">Nom login : </label>
