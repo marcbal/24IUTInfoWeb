@@ -38,6 +38,7 @@ class Inscription extends Controleur
         $checkResponse = "";
 
         if($type == 1) {   // agent
+            echo 'fuck1';
             $this->loadModel('Agents');
             $checkResponse = Session::registerAgent($email, $pass1, $pass2);
 
