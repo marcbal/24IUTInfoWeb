@@ -7,5 +7,5 @@
  */
 
 foreach($agents as $agent){
-    echo '<a href='.URL.'client/'.$agent->getId().'>'.$agent->user_email.'<a>';
+    echo '<a href='.URL.'agent/index/'.$agent->getId().'>'.$agent->user_email.'<a>';
 }
