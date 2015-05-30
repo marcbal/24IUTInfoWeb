@@ -218,5 +218,5 @@ if (!defined('PASSWORD_BCRYPT')) {
     }
 }
 
-
+// echo password_hash('azertyuiop', PASSWORD_DEFAULT);
 
