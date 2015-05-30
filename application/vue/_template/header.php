@@ -60,7 +60,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">Menu</li>
+                        <li class="dropdown-header">Actions</li>
                         <li>
                             <a href="<?php echo URL . 'protege/index'; ?>">Accès restreint</a>
                         </li>
