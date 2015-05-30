@@ -40,7 +40,7 @@ class Client extends Controleur
             Redirect::to('');
 
         print_r($client);
-        //$client->loadClient($queryClient);
+        $client->loadClient($queryClient);
 
         require 'application/vue/_template/header.php';
         require 'application/vue/client/index.php';
