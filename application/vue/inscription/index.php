@@ -12,10 +12,15 @@
         <div id="type_1" style="display:none;">
 
 
-
         </div>
         <div id="type_2" style="display:none;">
-            ok3
+
+                <ul>
+                        <li><label for="nom">Nom : </label>
+                            <input type="nom" name="clientname" placeholder="etrez le nom ici" required></li>
+                        <li><label for="adresse">Adresse : </label>
+                            <input type="adresse" name="adresse" placeholder="entrez l'adresse ici" required></li>
+            </ul>
         </div>
     </form>
 </section>
