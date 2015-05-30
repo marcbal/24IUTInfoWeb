@@ -24,7 +24,7 @@ class Escale extends Controleur
     //TODO tester si ca existe
     public function escale($id){
         $queryMouvement = new MouvementSQL();
-         $nbCharg = count($queryMouvement->findWithCondition("id_conteneur = ? and type = ?", array($id, 'c'))->execute()); // le nombre de chargement
+        $nbCharg = count($queryMouvement->findWithCondition("id_conteneur = ? and type = ?", array($id, 'c'))->execute()); // le nombre de chargement
         $nbDecharg = count($queryMouvement->findWithCondition("id_conteneur = ? and type = ?", array($id, 'd'))->execute()); // le nombre de dechargement
 
     }
