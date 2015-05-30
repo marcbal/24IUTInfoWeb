@@ -14,7 +14,7 @@ class Accueil extends Controleur
             Redirect::login ();
     }
     
-    public function index()
+    public function index($args)
     {
         require 'application/vue/_template/header.php';
         require 'application/vue/accueil/index.php';
