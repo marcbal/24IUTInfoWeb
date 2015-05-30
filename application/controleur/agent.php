@@ -19,5 +19,9 @@ class Agent extends Controleur
     public function index()
     {
 
+        require 'application/vue/_template/header.php';
+        require 'application/vue/agent/index.php';
+        require 'application/vue/_template/footer.php';
+
     }
 }

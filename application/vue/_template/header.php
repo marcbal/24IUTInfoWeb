@@ -71,8 +71,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <?php if (Session::get('user_logged_in')) { ?>
-                    <li><p class="navbar-text">Bienvenue <?php echo Session::get('user_name'); ?></p></li>
+                <?php if (Session::isLogin()) { ?>
+                    <li><p class="navbar-text">Bienvenue ! </p></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mon compte<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -94,13 +94,12 @@
                             <li>
                                 <a href="<?php echo URL; ?>login/changepassword">Change mon mot de passe</a>
                             </li>
-                            <li>
-                                
-                            </li>
+
                         </ul>
                     </li>
-                <?php } else { ?>
                     <li><a href="connexion/disconnect">Déconnexion</a></li>
+                <?php } else { ?>
+                    
                     <li><a href="<?php echo URL . 'login/register'; ?>">Inscription</a></li>
                 <?php } ?>
             </ul>
