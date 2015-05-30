@@ -49,6 +49,9 @@ class Client extends Controleur
 
     public function conteneurs(){
 
+        parent::loadModel('Users');
+        $queryUsers= new UsersSQL();
+
         parent::loadModel('Conteneurs');
         $queryConteneurs = new ConteneursSQL();
 
@@ -56,7 +59,9 @@ class Client extends Controleur
         parent::loadModel('Mouvements');
         $queryMouvements= new MouvementsSQL();
 
-        $conteneurs = $queryConteneurs->findWithCondition('id_client = ?',array(Session::get('user_id')))->execute();
+        $idC = $queryUsers->findById(Session::get('user_id'))->id_client;
+
+        $conteneurs = $queryConteneurs->findWithCondition('id_client = ?',array($idC))->execute();
 
         foreach($conteneurs as $conteneur){
             $conteneur->countMov($queryMouvements);
