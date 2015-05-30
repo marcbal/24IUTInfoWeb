@@ -20,6 +20,8 @@
                             <input type="nom" name="clientname" placeholder="etrez le nom ici" required></li>
                         <li><label for="adresse">Adresse : </label>
                             <input type="adresse" name="adresse" placeholder="entrez l'adresse ici" required></li>
+                        <li><label for="pays">Pays : </label>
+                            <input type="pays" name="pays" placeholder="Entrez le pays ici" required></li>
             </ul>
         </div>
     </form>
