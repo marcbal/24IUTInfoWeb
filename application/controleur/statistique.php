@@ -35,6 +35,7 @@ class Statistique extends Controleur{
     }
     public function getNavire($array){
         if(!isset($_POST["compagnie"]) or empty($_POST["compagnie"])){
+            echo "toto";
             return false;
         }
         parent::loadModel('Navires');
