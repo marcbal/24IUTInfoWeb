@@ -33,4 +33,19 @@ class Statistique extends Controleur{
     public function statClient($array){
 
     }
+    public function getNavire($array){
+        if(!isset($array["compagnie"]) or empty($array["compagnie"])){
+            return false;
+        }
+        parent::loadModel('Navires');
+        parent::loadModel('Compagnie_navires');
+        $compagnieNavireModele=new Compagnie_naviresSQL();
+        $compagnieNavire=$compagnieNavireModele->findWithCondition("id_navire=:id",array("id"=>$array["compagnie"]))->execute();
+        $navire=array();
+        foreach($compagnieNavire as $cn){
+            $navireModele=new NaviresSQL();
+            $navires[]=$navireModele->findById($cn->id_navire);
+        }
+        require 'application/vue/stat/getNavire';
+    }
 }

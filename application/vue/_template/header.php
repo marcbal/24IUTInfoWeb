@@ -12,6 +12,9 @@
     <link href="<?php echo URL; ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/navbar-fixed-top.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="public/js/ajax.js"></script>
+
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
