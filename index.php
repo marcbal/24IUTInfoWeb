@@ -28,6 +28,7 @@ require_once('application/modele/mymodel/queries/EscalesSQL.class.php');
 require_once('application/modele/mymodel/queries/NaviresSQL.class.php');
 require_once('application/modele/mymodel/queries/TransportersSQL.class.php');
 require_once('application/modele/mymodel/queries/UsersSQL.class.php');
+require_once('application/modele/mymodel/queries/CompagniesSQL.class.php');
 
 require_once('application/modele/mymodel/tables/Agents.class.php');
 require_once('application/modele/mymodel/tables/Clients.class.php');
