@@ -28,7 +28,7 @@ class Inscription extends Controleur
             return ;
         }
 
-        $this->loadModel('Users');
+        parent::loadModel('Users');
 
         $type = $_POST['type'];
 
