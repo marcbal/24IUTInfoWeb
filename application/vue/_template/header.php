@@ -34,11 +34,11 @@
                 <li>
                     <?php
                     if (Session::get('user_type') == USER_TYPE_COMPAGNIE) {
-                        echo '<a href="' . URL . '>compagnie">Ma Compagnie</a>';
+                        echo '<a href="' . URL . 'compagnie">Ma Compagnie</a>';
                     } else if (Session::get('user_type') == USER_TYPE_AGENT) {
-                        echo '<a href="' . URL . '>agent">Ma Compagnie</a>';
+                        echo '<a href="' . URL . 'agent">Agent</a>';
                     } else if (Session::get('user_type') == USER_TYPE_CLIENT) {
-                        echo '<a href="' . URL . '>client">Ma Compagnie</a>';
+                        echo '<a href="' . URL . 'client">Client</a>';
                     }
 
 
