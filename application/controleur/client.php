@@ -46,4 +46,32 @@ class Client extends Controleur
         require 'application/vue/_template/footer.php';
 
     }
+
+    public function conteneurs(){
+
+        parent::loadModel('Users');
+        $queryUsers= new UsersSQL();
+
+        parent::loadModel('Conteneurs');
+        $queryConteneurs = new ConteneursSQL();
+
+
+        parent::loadModel('Mouvements');
+        $queryMouvements= new MouvementsSQL();
+
+        $idC = $queryUsers->findById(Session::get('user_id'))->id_client;
+
+        $conteneurs = $queryConteneurs->findWithCondition('id_client = ?',array($idC))->execute();
+
+        foreach($conteneurs as $conteneur){
+            $conteneur->countMov($queryMouvements);
+        }
+
+        require 'application/vue/_template/header.php';
+        require 'application/vue/client/conteneurs.php';
+        require 'application/vue/_template/footer.php';
+
+
+
+    }
 }

@@ -140,13 +140,16 @@ class Session
 	{
         $return = Session::registerCommun($mail, $pass, $pass2);
 		if($return !== true) return $return;
+        echo 'fuck2';
 
 		$agent = new Agents();
+        var_dump($agent);
         $agent->save();
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', "","", $agent->getId());
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'agent', null,null, $agent->getId());
+        var_dump($user);
 		$user->save();
-		
+        echo 'fuck3';
 		return true;
 		
 	}
@@ -155,13 +158,13 @@ class Session
     {
         $return = Session::registerCommun($mail, $pass, $pass2);
 		if($return !== true) return $return;
-
+        echo 'fuck2';
 		$compagnie = new Compagnies($nom, $pays);
         $compagnie->save();
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'compagnie', "", $compagnie->getId(), "");
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'compagnie', null, $compagnie->getId(), null);
 		$user->save();
-
+        echo 'fuck3';
 		return true;
 
 	}
@@ -175,7 +178,7 @@ class Session
         $client->save();
 
 		// création d'un nouveau Users
-		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'client', $client->getId(),"", "");
+		$user = new Users($mail, password_hash($pass, PASSWORD_DEFAULT), 'client', $client->getId(),null, null);
 		$user->save();
 
 		return true;
