@@ -4,7 +4,7 @@
 <div class="row">
 <section class="enregistrementform">
 
-    <form name="enregistrement" action="inscription/register" method="get" accept-charset="utf-8">
+    <form name="enregistrement" action="inscription/register" method="POST" accept-charset="utf-8">
             <div class="row">
 
 
