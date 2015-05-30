@@ -7,6 +7,12 @@ class Redirect
 	 */
 	public static function home()
 	{
+        if(Session::get('user_type') == USER_TYPE_AGENT)
+            Redirect::to('agent');
+        if(Session::get('user_type') == USER_TYPE_CLIENT)
+            Redirect::to('client');
+        if(Session::get('user_type') == USER_TYPE_COMPAGNIE)
+            Redirect::to('compagnie');
 		Redirect::to('');
 	}
         
