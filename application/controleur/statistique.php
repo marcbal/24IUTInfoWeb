@@ -12,6 +12,7 @@ class Statistique extends Controleur{
             Redirect::login();
     }
     public function index(){
+        parent::loadModel('Compagnies');
         if(Session::get("user_type")=="compagnie"){
             $compagnies=array();
             $compagnieModel=new CompagniesSQL();
