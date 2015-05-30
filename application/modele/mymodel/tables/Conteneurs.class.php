@@ -22,8 +22,8 @@ class Conteneurs extends Table{
 
 
     public function countMov(MouvementsSQL $queryMovement){
-        $this->nbC = count($queryMovement->findWithCondition('id_conteneur = ? and type = c',array($this->id))->execute());
-        $this->nbD = count($queryMovement->findWithCondition('id_conteneur = ? and type = d', array($this->id))->execute());
+        $this->nbC = count($queryMovement->findWithCondition('id_conteneur = ? and type = "c"',array($this->id))->execute());
+        $this->nbD = count($queryMovement->findWithCondition('id_conteneur = ? and type = "d"', array($this->id))->execute());
     }
 
 }
