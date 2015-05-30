@@ -27,7 +27,7 @@ class Inscription extends Controleur
             echo 'Vous êtes déjà connecté';
             return false;
         }
-
+        echo 'fuck';
         $this->loadModel('Users');
 
         $type = $_GET['type'];
@@ -40,7 +40,7 @@ class Inscription extends Controleur
         if($type == 1) {   // agent
             $this->loadModel('Agents');
             $checkResponse = Session::registerAgent($email, $pass1, $pass2);
-            echo 'fuck';
+
         }
 
 
