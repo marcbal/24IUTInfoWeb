@@ -3,7 +3,9 @@
 <link href="<?php echo URL; ?>public/css/navbar-fixed-top.css" rel="stylesheet">
 <section class="loginform">
 
-    <form class="form-horizontal" role="form" action="<?php echo URL; ?>login/verification" method="post">
+
+    <form class="form-horizontal" role="form" action="<?php echo URL; ?>/connexion/verification" method="post">
+
 
         <div class="form-group">
             <label for="usermail" class="col-sm-2 control-label">Adresse mail : </label>
