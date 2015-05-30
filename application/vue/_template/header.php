@@ -68,8 +68,16 @@
                             echo '<li>';
                             echo '<a href="' . URL . 'agent/liste_client">Liste client</a>';
                             echo '</li>';
+
+                            echo '<li>';
+                            echo '<a href="' . URL . 'agent/liste_compagnie">Liste compagnie</a>';
+                            echo '</li>';
+
+                            echo '<li>';
+                            echo '<a href="' . URL . 'agent/liste_agent">Liste agent</a>';
+                            echo '</li>';
                         }
-                        ?>
+
                         ?>
                         <li>
                             <a href="<?php echo URL . 'protege/index'; ?>">Accès restreint</a>
@@ -119,4 +127,3 @@
 <div class="container">
 
 
-</div>
