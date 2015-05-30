@@ -13,11 +13,26 @@ class Agent extends Controleur
         parent::__construct();
         if (!Session::isLogin())
             Redirect::login();
+        if(Session::get('user_type')!= USER_TYPE_AGENT)
+            Redirect::to('');
     }
 
 
-    public function index()
+    public function index($id=false)
     {
+
+        parent::loadModel('Users');
+
+        $query = new UsersSQL();
+
+        if(!$id){
+            $agent = $query->findById(Session::get('id'));
+        }
+        else{
+            $agent = $query->findById('$id');
+            if($agent == null)
+                Redirect::to('');
+        }
 
         require 'application/vue/_template/header.php';
         require 'application/vue/agent/index.php';
